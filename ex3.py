@@ -35,7 +35,10 @@ def outputStr(mot:str, lpos:list)-> str:
         liste_retour[position_lettre] = mot[position_lettre]
     return "".join(liste_retour)
 
-def run_game():
+def run_game() -> None:
+    """
+    Procédure de gestion de la partie
+    """
     liste_de_mots = build_list("capitales.txt")
     nombre_de_coup = 0
     nombre_de_coup_maximum = 5
@@ -103,13 +106,29 @@ def run_game():
             print("il vous reste {} coups".format(nombre_de_coup_maximum-nombre_de_coup))
 
 
-def build_list(file_name:str):
+def build_list(file_name:str) -> list:
+    """Lis le fichier dont le nom est passé en paramètre et retourne une liste contenant tous les mots du fichier
+
+    Args:
+        file_name (str): Nom du fichier a lire
+
+    Returns:
+        [list]: Liste contenant tous les mots du fichier
+    """
     with open(file_name, "r",encoding="UTF-8") as fichier:
         liste_retour = fichier.read().split("\n")
     fichier.close()
     return liste_retour
 
 def build_dict(lst:list)->dict:
+    """Construit un dictionnaire a partir de la liste passée en paramètre et de y associe le nombre de lettres
+
+    Args:
+        lst (list): Liste de mots
+
+    Returns:
+        dict: dictionnaire associant le nombre de lettres aux mots
+    """
     dictionnaire_de_mot = {}
     for value in lst:
         if not len(value) in dictionnaire_de_mot:
@@ -119,6 +138,15 @@ def build_dict(lst:list)->dict:
     return dictionnaire_de_mot
 
 def select_word(sorted_words:dict, word_len:int)->str:
+    """Choisis un mot aléataoire dans le dictionnaire en respectant le nombre de lettre maximal passé en paramètre
+
+    Args:
+        sorted_words (dict): Dictionnaire de mots et longueurs des mots
+        word_len (int): nombre de lettres maximale du mot
+
+    Returns:
+        str: mot choisis
+    """
     a= 0
     nombre_alea = random.randint(0,len(sorted_words[word_len]))
     return sorted_words[word_len][nombre_alea]

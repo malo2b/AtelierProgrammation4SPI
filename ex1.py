@@ -61,8 +61,11 @@ def is_mail(chaine:str) -> tuple:
             mail_split = chaine.split("@") # Sépare le corp du nom de domaine
             if not re.match("^[a-zA-Z0-9]{3,}([^ ][a-zA-Z0-9]{3,10})?$",mail_split[0]): # Verification du corp
                resultat = (0,1)
-            elif re.match("[^.]",mail_split[1]):
-                resultat = (0,4)
+            elif re.match("[^ ]",mail_split[1]):
+                if re.match("[^\.]",mail_split[1]):
+                    resultat = (0,4)
+                else:
+                    resultat = (0,3)
             elif not re.match("^[a-z0-9.-_]{3,15}[.][a-z0-9.-_]{2,10}",mail_split[1]):
                 resultat = (0,3)
     return resultat

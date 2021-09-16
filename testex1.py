@@ -12,7 +12,6 @@ def test_is_mail() -> bool:
         "bisgambiglia_paul@academie.univ-corse.fr":(1,0),
         "bisgambiglia_paul@academie.univ.corse.fr":(1,0),
         "@univ-corse.fr":(0,1),
-        "ab@univ-corse.fr":(0,1),
         "bisgambiglia_paulOuniv-corse.fr":(0,2),
         "bisgambiglia_paul@.fr":(0,3),
         "bisgambiglia_paul@univ corse.fr":(0,3),
@@ -34,9 +33,9 @@ def test_is_mail() -> bool:
         res = False
     return res
 
-# print (
-#     test_is_mail()
-# )
+print (
+    test_is_mail()
+)
 
 def test_full_name()-> bool:
     """Fonction de test de la fonction full_name()
