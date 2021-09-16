@@ -45,10 +45,10 @@ def test_full_name()-> bool:
         bool: True si tous les tests sont valides, False sinon
     """
     NAME_TO_TEST = {
-    #     "Girard Malo":"GIRARD Malo",
-    #     "girard malo":"GIRARD Malo",
-    #     "GIRARD Malo":"GIRARD Malo",
-    #     "Girard Malo Michel":"GIRARD Malo",
+        "Girard Malo":"GIRARD Malo",
+        "girard malo":"GIRARD Malo",
+        "GIRARD Malo":"GIRARD Malo",
+        "Girard Malo Michel":"GIRARD Malo",
         " girard  malo   ":"GIRARD Malo"
     }
     nbr_test_valide = 0
