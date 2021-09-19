@@ -23,7 +23,7 @@ def saisie_full_name() -> str:
     """
     while True:
         try:
-            pattern = "^[a-zA-Z]{2,}[ ]{1}[a-zA-Z]{2,} *$"
+            pattern = "^[a-zA-Z]{2,}[ ]{1}[a-zA-Z]{2,}*$"
             str_saisie = str(input("Veuillez saisir votre nom et prenom séparé d'un espace : "))
             if re.match(pattern,str_saisie):
                 break
@@ -50,9 +50,9 @@ def is_mail(chaine:str) -> tuple:
                    et code d'erreur sinon
     """
     resultat = ()
-    pattern_email = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
+    pattern_email = "\b[A-Za-z0-9._-]+@[A-Za-z0-9.-]+.[A-Z|a-z]{2,}"
     chaine = chaine.lower()
-    if re.match(pattern_email,chaine): # Si email valide
+    if re.match(pattern_email.lower(),chaine): # Si email valide
         resultat = (1,0)
     else:
         if not re.match("^.*@{1}.*",chaine): # Si @ manquant

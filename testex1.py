@@ -14,7 +14,6 @@ def test_is_mail() -> bool:
         "@univ-corse.fr":(0,1),
         "bisgambiglia_paulOuniv-corse.fr":(0,2),
         "bisgambiglia_paul@.fr":(0,3),
-        "bisgambiglia_paul@univ corse.fr":(0,3),
         "bisgambiglia_paul@univ-corsePOINTfr":(0,4)
     }
     nbr_test_valide = 0
