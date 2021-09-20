@@ -115,7 +115,7 @@ def build_list(file_name:str) -> list:
     Returns:
         [list]: Liste contenant tous les mots du fichier
     """
-    with open(file_name, "r",encoding="UTF-8") as fichier:
+    with open(file_name,"r",encoding="UTF-8") as fichier:
         liste_retour = fichier.read().split("\n")
     fichier.close()
     return liste_retour

@@ -120,8 +120,8 @@ def correspondance_caracteres_speciaux(caractere:str) -> str:
     for lettre_a_correspondre in TABLE_DE_CORRESPONDANCE.items():
         if caractere in lettre_a_correspondre[1]:
             res = lettre_a_correspondre[0]
-        elif ord(caractere) == 160: # Si caractere 160 (espace)
-            caractere = ""
+        # elif ord(caractere) == 160: # Si caractere 160 (espace)
+        #     caractere = ""
     if res == "":
         res = caractere
     return res
@@ -137,11 +137,12 @@ def mot_optimaux(dico:list,lettres:str)->list:
     """
     mots_optimaux = []
     liste_mots = []
+    len_lettres = len(lettres)
     i = 0
-    while mots_optimaux == [] and len(lettres)-i >= 2:
+    while mots_optimaux == [] and len_lettres-i >= 2:
         # Creation de la liste comprenant les mots
         for mot in dico:    # Pour chacun des mots du dictionnaire
-            if len(mot) == len(lettres)-i:
+            if len(mot) == len_lettres-i:
                 if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) is not None: # Si caractère spéciaux
                     flag = ""
                     for lettre in mot: # Pour chacune des lettres du mot
