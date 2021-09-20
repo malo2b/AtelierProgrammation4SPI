@@ -1,6 +1,6 @@
 import re
 
-def mot_correspondant (mot:str,motif:str)->bool:
+def mot_correspondant(mot:str,motif:str)->bool:
     """[summary] verifie si un motif et present dans mot
 
     Args:
@@ -11,7 +11,7 @@ def mot_correspondant (mot:str,motif:str)->bool:
         bool: True si motif present False sinon
     """
     correspond = False
-    if(re.match(motif,mot)):
+    if re.match(motif,mot):
         correspond = True
     return correspond
 
@@ -33,7 +33,7 @@ def presente(lettre:str,mot:str)->int:
 
 
 def mot_possible(mot:str,lettres:str) -> bool:
-    """Retourne un booleen en fonction de si un mot est réalisable a partir d'une liste de lettre passée en paramètre
+    """Retourne un booleen en fonction de si un mot est réalisable a partir d'une liste delettre passée en paramètre
 
     Args:
         mot (str): Mot a composer
@@ -137,16 +137,15 @@ def mot_optimaux(dico:list,lettres:str)->list:
     """
     mots_optimaux = []
     liste_mots = []
-    aucun_mot_possible = False
     i = 0
     while mots_optimaux == [] and len(lettres)-i >= 2:
         # Creation de la liste comprenant les mots
         for mot in dico:    # Pour chacun des mots du dictionnaire
             if len(mot) == len(lettres)-i:
-                if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) != None: # Si caractère spéciaux
+                if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) is not None: # Si caractère spéciaux
                     flag = ""
                     for lettre in mot: # Pour chacune des lettres du mot
-                        if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) != None: # Si caractere spécial
+                        if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) is not None: # Si caractere spécial
                             flag += correspondance_caracteres_speciaux(lettre)   # Caractère transformé par la fonction
                         else:
                             flag += lettre

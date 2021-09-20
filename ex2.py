@@ -100,12 +100,11 @@ def liste_mots(lst_mot:list,prefixe:str,suffixe:str,nombre_caracteres:int)->list
     # liste_de_mots_present = commencent_par(liste_de_mots_present,prefixe)
     # liste_de_mots_present = finissent_par(liste_de_mots_present,suffixe)
 
-    liste_de_mots_present = finissent_par(
+    return finissent_par(
         commencent_par(
             mots_Nlettres(lst_mot,nombre_caracteres),prefixe
             ),
     suffixe)
-    return liste_de_mots_present
 
 def dictionnaire(nom_fichier:str) -> list[str]:
     """Retourne la liste des mots contenu dans un fichier texte dont le nom est passé en paramètre

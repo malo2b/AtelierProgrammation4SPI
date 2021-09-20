@@ -9,7 +9,7 @@ def places_lettre(caractere: str,mot: str) -> list:
         mot (str):mot dont l'ont cherches le ou les caracteres
 
     Returns:
-        list: []si caractere pas present sinon l'index d'ou il se situe
+        list: si caractere pas present sinon l'index d'ou il se situe
         """
 
     liste_de_caractere = []
@@ -18,7 +18,7 @@ def places_lettre(caractere: str,mot: str) -> list:
             liste_de_caractere.append(index)
     return liste_de_caractere
 
-def outputStr(mot:str, lpos:list)-> str:
+def outputStr(mot:str, lpos:list)-> str: # Malo
     """Retourne une chaine de caractère avec les lettres masquées selon la liste lpos passée en paramètres
 
     Args:
