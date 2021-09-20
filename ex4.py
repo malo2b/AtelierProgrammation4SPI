@@ -128,7 +128,6 @@ def correspondance_caracteres_speciaux(caractere:str) -> str:
 
 def mot_optimaux(dico:list,lettres:str)->list:
     """
-
     Args:
         dico (list):mots disponible en fonction de lettre
         lettres (str): permet de restreidre le nombre de mot
@@ -154,8 +153,6 @@ def mot_optimaux(dico:list,lettres:str)->list:
                     mot = flag
                 liste_mots.append(mot)
 
-        # print(liste_mots)
-
         # Construction de la liste mots_optimaux
         for mot in liste_mots:
             if mot_possible(mot,lettres): # Si mot est possible
@@ -169,6 +166,6 @@ def mot_optimaux(dico:list,lettres:str)->list:
 print(
     mot_optimaux(
         dictionnaire("dico.txt"),
-        "testats"
+        "tesfzfecbjzxbfjhezcjfhzehftats"
     )
 )
