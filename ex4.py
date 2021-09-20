@@ -114,7 +114,7 @@ def correspondance_caracteres_speciaux(caractere:str) -> str:
         "c":"ç",
         "o":"òõöôó",
         "y":"ýÿ",
-        "":"-",
+        "":"-\xA0",
     }
     res = ""
     for lettre_a_correspondre in TABLE_DE_CORRESPONDANCE.items():
@@ -144,10 +144,10 @@ def mot_optimaux(dico:list,lettres:str)->list:
         # Creation de la liste comprenant les mots
         for mot in dico:    # Pour chacun des mots du dictionnaire
             if len(mot) == len(lettres)-i:
-                if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ])+",mot) != None: # Si caractère spéciaux
+                if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) != None: # Si caractère spéciaux
                     flag = ""
                     for lettre in mot: # Pour chacune des lettres du mot
-                        if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ])+",mot) != None: # Si caractere spécial
+                        if re.search("([éèêëìíîïàáâãäåùúüûçòõöôóýÿ\xA0])+",mot) != None: # Si caractere spécial
                             flag += correspondance_caracteres_speciaux(lettre)   # Caractère transformé par la fonction
                         else:
                             flag += lettre
@@ -169,6 +169,6 @@ def mot_optimaux(dico:list,lettres:str)->list:
 print(
     mot_optimaux(
         dictionnaire("dico.txt"),
-        "testetstavfezv"
+        "testats"
     )
 )
